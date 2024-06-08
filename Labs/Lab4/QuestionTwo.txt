@@ -1,0 +1,7 @@
+a) Capacity is the amount an ArrayList can hold while size is how many items are currently in the ArrayList
+
+b) Integer.MAX_VALUE
+
+c) Easier to insert items to the beginning and ArrayLists can expand
+
+d) Easier to sort and takes up less memory in ram

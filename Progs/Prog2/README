@@ -1,0 +1,141 @@
+PROBLEM AT HAND
+------------------------------------
+Creating a library system which receives a prepared .dat file and sorts them for future binary search.
+Incorporates 2 main ways to view info: a List of Books and a Title Search Engine.
+
+
+Sample Input and Output
+------------------------------------
+
+                    THE BOOK SEARCH PROGRAM
+----------------------------------------------------------------
+
+     What file is your book data stored in?
+
+     Here are the files in the current directory :
+
+library.dat play.dat
+
+     Filename : library.dat
+
+A total of 15 books have been input & sorted by title.
+
+Please hit Return to coninue...
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            THE GREAT BOOKS SEARCH PROGRAM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1)  Display all book records
+2)  Search for a book by Title
+3)  Exit Search Program
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Please Enter Your Choice > 1
+
+
+Record #1 :
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Title : Animal Farm
+Author's Name : Orwell, George
+Copyright : 1978
+Price : 10.0
+Genre : Fiction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Please Hit Return to Continue or M for Menu...
+
+
+Record #2 :
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Title : Canterbury Tales
+Author's Name : Chaucer, Geoffrey
+Copyright : 1965
+Price : 20.0
+Genre : Drama
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Please Hit Return to Continue or M for Menu...
+
+
+Record #3 :
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Title : Christmas Carol
+Author's Name : Dickens, Charles
+Copyright : 1966
+Price : 12.5
+Genre : Fiction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Please Hit Return to Continue or M for Menu...m
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            THE GREAT BOOKS SEARCH PROGRAM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1)  Display all book records
+2)  Search for a book by Title
+3)  Exit Search Program
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Please Enter Your Choice > 2
+
+Search Title > Animal Farm
+
+
+Book Found in Alphabetized List in :
+
+Record #1 :
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Title : Animal Farm
+Author's Name : Orwell, George
+Copyright : 1978
+Price : 10.0
+Genre : Fiction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Please Hit Return to Continue...
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            THE GREAT BOOKS SEARCH PROGRAM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1)  Display all book records
+2)  Search for a book by Title
+3)  Exit Search Program
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Please Enter Your Choice > 3
+
+
+Goodbye. Have a nice day. :-)
+
+
+Algorithm Breakdown
+------------------------------------
+-Inputting the Info
+
+The client first inputs the file into the system with properly formatted information.
+The computer reads it via a Scanner and utilizes a Delimiter to seperate the information on each line.
+By utilizing the object, LibraryBook, we create and insert multiple instances of them into an ArrayList. The amount of books are dependent on line count.
+Many error try-catch including FileNotFoundException and IOException to prevent program crashes and pauses.
+
+
+-Sorting the Info
+
+The System takes the ArrayList from the previos step as a parameter to the class selectionSort().
+The System compares and sorts the information by using .compareToIgnoreCase from least to greatest in alphabetical order.
+It swaps the minIndex and i slots when compared below 0.
+Returns a sorted ArrayList<LibraryBook>.
+
+-Searching the Info
+
+There are two ways which books can be searched:
+	-Records
+	This algorithm displays all books via a simple GUI and loops through the information as client presses Enter.
+	Utilizes sorted ArrayList.
+	
+	-Search Engine
+	This algorithm displays a certain book based on the title that the client has entered as the key term.
+	Utilizes sorted ArrayList and Object key parameter.
+
+
+
+

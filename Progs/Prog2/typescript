@@ -1,0 +1,7 @@
+cat LibraryRun.java
+cat LibraryInput.java
+cat LibrarySort.java
+cat LibrarySearch.java
+
+javac LibraryRun.java
+java LibraryRun

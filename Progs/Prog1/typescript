@@ -1,0 +1,5 @@
+cat StartBingo.java  BingoSheet.java
+
+javac StartBingo.java
+java StartBingo
+java StartBingo

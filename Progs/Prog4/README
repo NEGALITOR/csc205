@@ -1,0 +1,107 @@
+PROBLEM AT HAND
+------------------------------------
+
+
+Sample Input and Output
+------------------------------------
+
+[tas_ta@cobra Prog4]$ java TimeShare jobs1.dat
+
+------------------------------------------------
+
+     Job Control Analysis: Summary Report
+
+job id arrival start   run     wait    turnaround
+        time    time    time    time    time
+------ ------ -----   ----    ----    ----------
+
+job1    1       1       3       0       3
+job2    2       4       2       2       4
+job3    10      10      5       0       5
+
+     Average Wait Time => 0.67
+             CPU Usage => 10.00
+              CPU Idle => 4.00
+         CPU Usage (%) => 71.43%
+
+------------------------------------------------
+
+
+[tas_ta@cobra Prog4]$ java TimeShare jobs1.dat jobs2.dat
+
+------------------------------------------------
+
+     Job Control Analysis: Summary Report
+
+job id arrival start   run     wait    turnaround
+        time    time    time    time    time
+------ ------ -----   ----    ----    ----------
+
+job1    1       1       3       0       3
+job2    2       4       2       2       4
+job3    10      10      5       0       5
+job1    1       15      8       14      22
+job2    2       23      2       21      23
+job3    10      25      5       15      20
+
+     Average Wait Time => 8.67
+             CPU Usage => 25.00
+              CPU Idle => 4.00
+         CPU Usage (%) => 86.21%
+
+------------------------------------------------
+
+
+[tas_ta@cobra Prog4]$ java TimeShare jobs3.dat
+
+------------------------------------------------
+
+     Job Control Analysis: Summary Report
+
+job id arrival start   run     wait    turnaround
+        time    time    time    time    time
+------ ------ -----   ----    ----    ----------
+
+job1    1       1       1       0       1
+job2    2       2       16      0       16
+job3    8       18      2       10      12
+job4    1       20      8       19      27
+job5    3       28      5       25      30
+
+     Average Wait Time => 10.80
+             CPU Usage => 32.00
+              CPU Idle => 0.00
+         CPU Usage (%) => 100.00%
+
+------------------------------------------------
+
+
+Calculations
+------------------------------------
+Avg Wait Time : waitTime/jobCount
+CPU Usage     : cpuUsageTime (incremented based on count and job.runTime)
+CPU Idle      : idleTime (incremented based on clockTime and job.arrivalTime)
+CPU Usage (%) : cpuUsageTime/(cpuUsageTime + idleTime) * 100)
+
+
+Algorithm Breakdown
+------------------------------------
+-Dequeue (Queue.java)
+
+Checks for conditions: if the queue is not empty, has one item, or multiple items
+Based on that it removes the item from the front and sets certian elements for garbage collection
+Incorporates dequeueAll() and many of the Node related traversals
+Queue.java utilizes the QueueInterface in order to create its own versions of certain functions like dequeue()
+
+-menuConstruct (TimeShare.java)
+
+Constructs the title menu
+
+-readFile (TimeShare.java)
+
+Recieves the array of args from terminal parameters and reads the file into a queue using an Object of Job
+
+-jobsCheck (TimeShare.java)
+
+Takes in Job object from queue and analyzes it for the calculation of Avg Wait Time, CPU Usage, CPU Idle, CPU Usage (%)
+

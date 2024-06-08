@@ -1,0 +1,90 @@
+PROBLEM AT HAND
+------------------------------------
+Creating a Bingo system that randomly chooses a value (without reselecting an already chosen value) and checks whether
+a horizontal, vertical, or diagonal bingo is achieved.
+
+
+Sample Input
+------------------------------------
+Contained in the bingo.in file. Consists of 25 numbers and each number is on its own line as follows:
+
+12
+28
+31
+49
+66
+...
+
+Bingo cards are ordered as follows:
+
+Column 1 - Contains values in the range 1 - 15
+Column 2 - Contains values in the range 16 - 30
+Column 3 - Contains values in the range 31 - 45
+Column 4 - Contains values in the range 46 - 60
+Column 5 - Contains values in the range 61 - 75
+
+The board is sorted into an array using row major order.
+
+
+Example Output
+------------------------------------
+Your Bingo Card:
+--------------------------
+| 12 | 28 | 31 | 49 | 66 |
+--------------------------
+|  3 | 26 | 45 | 53 | 75 |
+--------------------------
+| 10 | 17 | 33 | 59 | 67 |
+--------------------------
+|  7 | 19 | 42 | 55 | 74 |
+--------------------------
+|  2 | 23 | 37 | 46 | 70 |
+--------------------------
+
+Bingo Numbers Picked At Random From Bin :
+      66      62       7      53      47      64      37      29      46
+      22      57      17      71      23      34      24      36      40
+      72      27      26       2      32       6      65      70
+You win with a Horizontal bingo after 26 picks!
+
+YOUR BINGO CARD :
+
+   B    I    N    G    O
+--------------------------
+| 12 | 28 | 31 | 49 |  X |
+--------------------------
+|  3 |  X | 45 |  X | 75 |
+--------------------------
+| 10 |  X | 33 | 59 | 67 |
+--------------------------
+|  X | 19 | 42 | 55 | 74 |
+--------------------------
+|  X |  X |  X |  X |  X |
+--------------------------
+
+
+Algorithm Breakdown
+------------------------------------
+-Marking the card
+
+The card is first filled from the file(bingo.in)  with the fillCard() function using row major order(RM).
+Then it turns the int values into a string in order for us to mark randomly selected numbers with an X.
+When a random value is called it searches that value through the int and String array with linear search.
+It replaces that random value with a 0 in the int array and an X in the String array.
+Using the printCard() functions it prints out the array. It uses overloading so you can either print the int array or String array.
+
+
+-Checking for a duplicate pick
+
+When a random number is selected via numSelector() function it checks if the bitset value in numAlreadyUsed is true or false.
+If false for that value it flips that boolean to true and prints it.
+If true reroll and check all over again till false.
+Then it prints it out using the conditions in numCalled() function and makes sure that after very 9 values it prints on next line.
+
+
+-Determining a win
+
+Sums up the rows, columns and diagonals one by one and checks whether it will be equal to 0.
+It checks for 0 due to it replacing the int array values with 0 when randomly chosen.
+Once it determines that a win occurred, print out the win type and how many randomly selected numbers were drawn.
+Then it displays the String version of the printCard() with all the Xs on the board.

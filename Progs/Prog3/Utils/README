@@ -1,0 +1,146 @@
+PROBLEM AT HAND
+------------------------------------
+Creating an employee manager that can create and download to a binary file or upload and edit info from a binary file.
+Incorporates both inheritance and polymorphism.
+
+Sample Input and Output
+------------------------------------
+-----------------------------------
+|Commands: n - New employee       |
+|          c - Compute paychecks  |
+|          r - Raise wages        |
+|          p - Print records      |
+|          u - Upload data        |
+|          d - Download data      |
+|          q - Quit               |
+-----------------------------------
+Enter command: n
+Enter the name of new employee: Doe, John
+Hourly (h) or salaried (s): h
+Enter hourly wage: 40
+
+-----------------------------------
+|Commands: n - New employee       |
+|          c - Compute paychecks  |
+|          r - Raise wages        |
+|          p - Print records      |
+|          u - Upload data        |
+|          d - Download data      |
+|          q - Quit               |
+-----------------------------------
+Enter command: n
+Enter the name of new employee: Doe, Jane
+Hourly (h) or salaried (s): s
+Enter annual salary: 80000
+
+-----------------------------------
+|Commands: n - New employee       |
+|          c - Compute paychecks  |
+|          r - Raise wages        |
+|          p - Print records      |
+|          u - Upload data        |
+|          d - Download data      |
+|          q - Quit               |
+-----------------------------------
+Enter command: p
+
+Records
+---------
+Doe, John                         $40.00/hour
+Doe, Jane                      $80000.00/year
+
+Press Enter to Continue...
+
+-----------------------------------
+|Commands: n - New employee       |
+|          c - Compute paychecks  |
+|          r - Raise wages        |
+|          p - Print records      |
+|          u - Upload data        |
+|          d - Download data      |
+|          q - Quit               |
+-----------------------------------
+Enter command: r
+Enter percentage increase: 4.5
+
+New Wages
+------------
+Doe, John                         $41.80/hour
+Doe, Jane                      $83600.00/year
+
+Press Enter to Continue...
+
+-----------------------------------
+|Commands: n - New employee       |
+|          c - Compute paychecks  |
+|          r - Raise wages        |
+|          p - Print records      |
+|          u - Upload data        |
+|          d - Download data      |
+|          q - Quit               |
+-----------------------------------
+Enter command: d
+Completed! Press Enter to Continue...
+
+-----------------------------------
+|Commands: n - New employee       |
+|          c - Compute paychecks  |
+|          r - Raise wages        |
+|          p - Print records      |
+|          u - Upload data        |
+|          d - Download data      |
+|          q - Quit               |
+-----------------------------------
+Enter command: u
+Doe, John                         $41.80/hour
+Doe, Jane                      $83600.00/year
+Completed! Press Enter to Continue...
+
+-----------------------------------
+|Commands: n - New employee       |
+|          c - Compute paychecks  |
+|          r - Raise wages        |
+|          p - Print records      |
+|          u - Upload data        |
+|          d - Download data      |
+|          q - Quit               |
+-----------------------------------
+Enter command: p
+
+Records
+---------
+Doe, John                         $41.80/hour
+Doe, Jane                      $83600.00/year
+
+Press Enter to Continue...
+
+-----------------------------------
+|Commands: n - New employee       |
+|          c - Compute paychecks  |
+|          r - Raise wages        |
+|          p - Print records      |
+|          u - Upload data        |
+|          d - Download data      |
+|          q - Quit               |
+-----------------------------------
+Enter command: q
+
+Algorithm Breakdown
+------------------------------------
+-Menu Construct
+
+Contructs the GUI for client to understand what they can do
+
+-Menu Analyzer
+
+Read input and decides what to do with a switch statement
+
+-Inheritance between Employee class and the HourlyEmployee/SalariedEmployee classes
+
+The Employee class is abstract with an abstract method of computePay(). The inheriting classes create their own version of this method and allows us to make computePay() whatever the inherited class needs.
+Polymorphism played a key role within the ArrayList. The ArrayList takes in any Object that utilizes Employee, so we can feed in the two different inherited classes allowing for easy manipulatiopn.
+
+-ObjIn and ObjOut
+
+Allows us to read in and out our employees Arraylist into a binary file for saving and later editing.
+
